@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Campus Connect</div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#community">Community</a>
+      <a href="#join">Join</a>
+    </nav>
+    <div class="cta-group">
+      <button class="btn ghost">Log in</button>
+      <button class="btn primary">Sign up</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <p class="eyebrow">Social community for students</p>
+        <h1>Stay connected with friends, clubs, and campus life</h1>
+        <p class="lede">
+          Campus Connect is a modern, community-driven platform inspired by the best parts of Facebook—
+          posts, messaging, groups, and events—tailored for your university.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary">Create an account</button>
+          <button class="btn ghost">Discover communities</button>
+        </div>
+        <div class="stats">
+          <div><strong>12k</strong><span>Active students</span></div>
+          <div><strong>250+</strong><span>Clubs & groups</span></div>
+          <div><strong>98%</strong><span>Positive feedback</span></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="News feed preview">
+        <div class="story">
+          <div class="story-user">
+            <span class="avatar" aria-hidden="true">SA</span>
+            <div>
+              <strong>Science Association</strong>
+              <small>2h ago · Public</small>
+            </div>
+          </div>
+          <p>Join us for a night of stargazing this Friday at the observatory. Open to everyone!</p>
+          <div class="media-placeholder">Event banner placeholder</div>
+          <div class="story-actions">
+            <button aria-label="Like">👍 124</button>
+            <button aria-label="Comment">💬 42</button>
+            <button aria-label="Share">🔗 Share</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-grid" id="features" aria-label="Platform features">
+      <article>
+        <h3>News Feed</h3>
+        <p>Post updates, photos, and polls to your friends or the entire campus community.</p>
+      </article>
+      <article>
+        <h3>Groups</h3>
+        <p>Join clubs, classes, and interest groups to stay updated on events and discussions.</p>
+      </article>
+      <article>
+        <h3>Messaging</h3>
+        <p>Chat 1:1 or in group threads with reactions, attachments, and smart replies.</p>
+      </article>
+      <article>
+        <h3>Events</h3>
+        <p>Discover campus events, RSVP, and sync reminders so you never miss out.</p>
+      </article>
+      <article>
+        <h3>Profiles</h3>
+        <p>Share your story with customizable profiles, badges, and class affiliations.</p>
+      </article>
+      <article>
+        <h3>Moderation</h3>
+        <p>Keep conversations healthy with clear guidelines, reporting, and admin tools.</p>
+      </article>
+    </section>
+
+    <section class="live-demo" aria-labelledby="live-demo-title">
+      <div class="demo-header">
+        <div>
+          <p class="eyebrow">Hands-on preview</p>
+          <h2 id="live-demo-title">Try sign up, log in, and post updates</h2>
+          <p class="lede">
+            This front-end demo uses secure-by-default client storage (localStorage) to mimic account
+            creation, login, and image uploads. No data ever leaves your browser.
+          </p>
+        </div>
+        <div class="auth-toggle" role="tablist" aria-label="Auth forms">
+          <button id="signup-tab" class="tab active" role="tab" aria-selected="true" aria-controls="signup-form">
+            Sign up
+          </button>
+          <button id="login-tab" class="tab" role="tab" aria-selected="false" aria-controls="login-form">
+            Log in
+          </button>
+        </div>
+      </div>
+
+      <div class="auth-forms">
+        <form id="signup-form" class="card" role="tabpanel" aria-labelledby="signup-tab">
+          <h3>Create an account</h3>
+          <label>
+            <span>Full name</span>
+            <input type="text" name="name" placeholder="Alex Morgan" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@university.edu" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="••••••••" minlength="6" required />
+          </label>
+          <button class="btn primary" type="submit">Create account</button>
+          <p class="helper">Accounts are saved locally for demo purposes only.</p>
+        </form>
+
+        <form id="login-form" class="card hidden" role="tabpanel" aria-labelledby="login-tab">
+          <h3>Welcome back</h3>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@university.edu" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="••••••••" required />
+          </label>
+          <button class="btn primary" type="submit">Log in</button>
+          <p class="helper">Use the email and password you signed up with.</p>
+        </form>
+
+        <div id="session-card" class="card hidden" aria-live="polite">
+          <div class="session-row">
+            <div>
+              <p class="eyebrow">Signed in as</p>
+              <strong id="session-user">Student</strong>
+              <p id="session-email" class="small"></p>
+            </div>
+            <button id="logout" class="btn ghost">Log out</button>
+          </div>
+
+          <form id="create-post" class="post-form">
+            <label class="full">
+              <span>Share an update</span>
+              <textarea name="content" rows="3" placeholder="What's happening on campus?" required></textarea>
+            </label>
+            <label>
+              <span>Upload photo</span>
+              <input type="file" name="image" accept="image/*" />
+            </label>
+            <div class="post-actions">
+              <button type="submit" class="btn primary">Post to feed</button>
+              <span class="helper">Images stay in your browser for this demo.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="feed-area">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Live feed</h3>
+            <button id="clear-feed" class="btn pill ghost" type="button">Clear demo data</button>
+          </div>
+          <div id="feed-list" class="feed-list" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="community" id="community">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Featured Groups</h2>
+          <a class="link" href="#">See all</a>
+        </div>
+        <ul class="list">
+          <li>
+            <div>
+              <strong>Women in Tech</strong>
+              <p>Workshops, mentorship, and hackathons for women across STEM majors.</p>
+            </div>
+            <button class="btn pill">Join</button>
+          </li>
+          <li>
+            <div>
+              <strong>Photography Circle</strong>
+              <p>Weekly photowalks, editing sessions, and collaborative projects.</p>
+            </div>
+            <button class="btn pill">Join</button>
+          </li>
+          <li>
+            <div>
+              <strong>Debate Society</strong>
+              <p>Sharpen your voice with tournaments, scrimmages, and peer feedback.</p>
+            </div>
+            <button class="btn pill">Join</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Upcoming Events</h2>
+          <a class="link" href="#">See calendar</a>
+        </div>
+        <ul class="list compact">
+          <li>
+            <div>
+              <strong>Career Fair 2024</strong>
+              <p>Meet recruiters from 60+ companies · Oct 12 · Student Center</p>
+            </div>
+            <button class="btn pill ghost">RSVP</button>
+          </li>
+          <li>
+            <div>
+              <strong>Homecoming</strong>
+              <p>Parade, football game, and alumni networking · Oct 28</p>
+            </div>
+            <button class="btn pill ghost">Interested</button>
+          </li>
+          <li>
+            <div>
+              <strong>Hack for Good</strong>
+              <p>48-hour social impact hackathon · Nov 5 · Innovation Hub</p>
+            </div>
+            <button class="btn pill ghost">RSVP</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta" id="join">
+      <div>
+        <h2>Ready to start your community?</h2>
+        <p>Sign up with your campus email to join classmates, clubs, and friends today.</p>
+      </div>
+      <form class="signup" aria-label="Create account">
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="you@university.edu" required />
+        </label>
+        <label>
+          <span>Create password</span>
+          <input type="password" name="password" placeholder="••••••••" required />
+        </label>
+        <label>
+          <span>Graduation year</span>
+          <select name="grad-year">
+            <option>2024</option>
+            <option>2025</option>
+            <option>2026</option>
+            <option>2027</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Create account</button>
+        <p class="helper">By signing up you agree to our community guidelines.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="logo">Campus Connect</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#community">Community</a>
+      <a href="#">Support</a>
+    </div>
+    <p class="small">Built for students who want a safer, friendlier social network.</p>
+  </footer>
+  <script>
+    const signupTab = document.getElementById("signup-tab");
+    const loginTab = document.getElementById("login-tab");
+    const signupForm = document.getElementById("signup-form");
+    const loginForm = document.getElementById("login-form");
+    const sessionCard = document.getElementById("session-card");
+    const sessionUser = document.getElementById("session-user");
+    const sessionEmail = document.getElementById("session-email");
+    const logoutBtn = document.getElementById("logout");
+    const createPostForm = document.getElementById("create-post");
+    const feedList = document.getElementById("feed-list");
+    const clearFeed = document.getElementById("clear-feed");
+
+    const storageKey = "campusConnectUser";
+    const postsKey = "campusConnectPosts";
+
+    function getStoredUser() {
+      const raw = localStorage.getItem(storageKey);
+      return raw ? JSON.parse(raw) : null;
+    }
+
+    function getPosts() {
+      const raw = localStorage.getItem(postsKey);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function setActiveTab(tab) {
+      if (tab === "signup") {
+        signupTab.classList.add("active");
+        signupTab.setAttribute("aria-selected", "true");
+        loginTab.classList.remove("active");
+        loginTab.setAttribute("aria-selected", "false");
+        signupForm.classList.remove("hidden");
+        loginForm.classList.add("hidden");
+      } else {
+        loginTab.classList.add("active");
+        loginTab.setAttribute("aria-selected", "true");
+        signupTab.classList.remove("active");
+        signupTab.setAttribute("aria-selected", "false");
+        loginForm.classList.remove("hidden");
+        signupForm.classList.add("hidden");
+      }
+    }
+
+    function setSession(user) {
+      if (user) {
+        signupForm.classList.add("hidden");
+        loginForm.classList.add("hidden");
+        sessionCard.classList.remove("hidden");
+        sessionUser.textContent = user.name;
+        sessionEmail.textContent = user.email;
+        signupTab.setAttribute("aria-selected", "false");
+        loginTab.setAttribute("aria-selected", "false");
+        signupTab.disabled = true;
+        loginTab.disabled = true;
+      } else {
+        sessionCard.classList.add("hidden");
+        signupTab.disabled = false;
+        loginTab.disabled = false;
+        setActiveTab("signup");
+      }
+    }
+
+    function renderPosts() {
+      const posts = getPosts().sort((a, b) => b.createdAt - a.createdAt);
+      feedList.innerHTML = "";
+      if (!posts.length) {
+        feedList.innerHTML = '<p class="muted">No posts yet—sign up and share something!</p>';
+        return;
+      }
+      posts.forEach((post) => {
+        const wrapper = document.createElement("article");
+        wrapper.className = "feed-card";
+        const date = new Date(post.createdAt).toLocaleString();
+        wrapper.innerHTML = `
+          <div class="feed-header">
+            <div>
+              <strong>${post.author}</strong>
+              <p class="small">${post.email} · ${date}</p>
+            </div>
+          </div>
+          <p>${post.content}</p>
+          ${post.image ? `<img src="${post.image}" alt="Uploaded by ${post.author}" class="feed-image" />` : ""}
+        `;
+        feedList.appendChild(wrapper);
+      });
+    }
+
+    signupTab.addEventListener("click", () => setActiveTab("signup"));
+    loginTab.addEventListener("click", () => setActiveTab("login"));
+
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const user = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        password: formData.get("password"),
+      };
+      localStorage.setItem(storageKey, JSON.stringify(user));
+      setSession(user);
+    });
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(loginForm);
+      const stored = getStoredUser();
+      if (!stored || stored.email !== formData.get("email") || stored.password !== formData.get("password")) {
+        alert("Invalid email or password for this demo.");
+        return;
+      }
+      setSession(stored);
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      setSession(null);
+    });
+
+    createPostForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const user = getStoredUser();
+      if (!user) {
+        alert("Please sign in first.");
+        return;
+      }
+      const formData = new FormData(createPostForm);
+      const content = formData.get("content");
+      const file = formData.get("image");
+      if (!content.trim()) return;
+      const posts = getPosts();
+      let image = "";
+      if (file && file.size) {
+        image = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.readAsDataURL(file);
+        });
+      }
+      posts.push({
+        author: user.name,
+        email: user.email,
+        content,
+        image,
+        createdAt: Date.now(),
+      });
+      localStorage.setItem(postsKey, JSON.stringify(posts));
+      createPostForm.reset();
+      renderPosts();
+    });
+
+    clearFeed.addEventListener("click", () => {
+      localStorage.removeItem(postsKey);
+      renderPosts();
+    });
+
+    const existingUser = getStoredUser();
+    if (existingUser) {
+      setSession(existingUser);
+    } else {
+      setActiveTab("signup");
+    }
+    renderPosts();
+  </script>
+</body>
+</html>
